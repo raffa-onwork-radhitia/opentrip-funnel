@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenTrip Funnel</title>
+
+    <!-- Supabase client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+
+    <!-- jsPDF -->
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <!-- REGISTER PAGE -->
+    <section id="registerPage" class="auth-page">
+      <div class="auth-brand">OpenTrip Funnel</div>
+
+      <div class="auth-wrapper">
+        <div class="auth-card">
+          <h1>Create Organizer Account</h1>
+          <p>Kelola dan analisis pendaftaran opentrip dengan presisi</p>
+
+          <form id="registerForm">
+            <label for="registerName">Full Name</label>
+            <input
+              type="text"
+              id="registerName"
+              placeholder="Nama Tour Leader / Admin"
+              required
+            />
+
+            <label for="registerEmail">Email Address</label>
+            <input
+              type="email"
+              id="registerEmail"
+              placeholder="admin@opentrip.com"
+              required
+            />
+
+            <label for="registerPassword">Password</label>
+            <input
+              type="password"
+              id="registerPassword"
+              placeholder="********"
+              required
+            />
+
+            <label for="confirmPassword">Confirm Password</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              placeholder="********"
+              required
+            />
+
+            <button type="submit" class="auth-button">Create Account</button>
+          </form>
+
+          <p class="auth-link">
+            Already have an account?
+            <button id="goToLogin" type="button">Sign in</button>
+          </p>
+        </div>
+      </div>
+
+      <div class="auth-footer">&copy; 2026 OpenTrip Funnel Analytics</div>
+    </section>
+
+    <!-- LOGIN PAGE -->
+    <section id="loginPage" class="auth-page hidden">
+      <div class="auth-brand">OpenTrip Funnel</div>
+
+      <div class="auth-wrapper">
+        <div class="auth-card">
+          <div class="auth-icon">OT</div>
+
+          <h1>Welcome Back</h1>
+          <p>Masuk ke dashboard organizer opentrip kamu</p>
+
+          <form id="loginForm">
+            <label for="loginEmail">Email Address</label>
+            <input
+              type="email"
+              id="loginEmail"
+              placeholder="admin@opentrip.com"
+              required
+            />
+
+            <label for="loginPassword">Password</label>
+            <input
+              type="password"
+              id="loginPassword"
+              placeholder="********"
+              required
+            />
+
+            <button type="submit" class="auth-button">Sign In &rarr;</button>
+          </form>
+
+          <p class="auth-link">
+            Don't have an account?
+            <button id="goToRegister" type="button">Create account</button>
+          </p>
+        </div>
+      </div>
+
+      <div class="auth-footer">&copy; 2026 OpenTrip Funnel Analytics</div>
+    </section>
+
+    <!-- DASHBOARD PAGE -->
+    <section id="dashboardPage" class="dashboard-page hidden">
+      <aside class="sidebar">
+        <div class="sidebar-main">
+          <div class="brand">
+            <div class="logo">OT</div>
+            <div>
+              <h2>OpenTrip</h2>
+              <p>Funnel Suite</p>
+            </div>
+          </div>
+
+          <nav class="menu">
+            <button type="button" class="menu-item active" data-page="overview">
+              Overview
+            </button>
+            <button type="button" class="menu-item" data-page="channel">
+              Channel Analysis
+            </button>
+            <button type="button" class="menu-item" data-page="funnel">
+              Funnel Depth
+            </button>
+            <button type="button" class="menu-item" data-page="table">
+              Data Tables
+            </button>
+          </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+          <button type="button" id="logoutButton">Logout</button>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="dashboard-header">
+          <div class="filter-group">
+            <select id="channelFilter">
+              <option value="all">All Channels</option>
+              <option value="TikTok Reels">TikTok Reels</option>
+              <option value="Instagram Ads">Instagram Ads</option>
+              <option value="WhatsApp Organic">WhatsApp Organic</option>
+              <option value="Website">Website</option>
+            </select>
+
+            <select id="dateFilter">
+              <option value="7">Last 7 Days</option>
+              <option value="month">This Month</option>
+              <option value="year">This Year</option>
+            </select>
+          </div>
+
+          <div class="header-actions">
+            <div class="avatar" title="Profile">
+              <svg class="avatar-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 21a8 8 0 0 0-16 0" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+            </div>
+          </div>
+        </header>
+
+        <section id="app">
+          <!-- Konten dinamis dari main.js -->
+        </section>
+      </main>
+    </section>
+
+    <!-- JavaScript -->
+    <script src="js/data_funnel.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
